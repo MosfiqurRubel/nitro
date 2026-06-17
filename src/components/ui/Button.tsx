@@ -10,7 +10,8 @@ type ButtonVariant =
   | "success"
   | "warning"
   | "outline"
-  | "ghost";
+  | "ghost"
+  | "solid";
 type ButtonSize = "small" | "medium" | "large";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -42,20 +43,21 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles: Record<ButtonSize, string> = {
-    small: "px-3 py-1 text-sm sm:px-4 sm:py-2",
-    medium: "px-4 py-1.5 text-base sm:px-6 sm:py-2",
-    large: "px-6 py-3 text-lg sm:px-8 sm:py-4",
+    small: "px-3 py-1 text-sm sm:px-6 sm:py-2",
+    medium: "px-6 py-1.5 text-base sm:px-11 sm:py-2",
+    large: "px-11 py-3 text-lg sm:px-8 sm:py-4",
   };
 
   const variantStyles: Record<ButtonVariant, string> = {
     primary:
-      "bg-[#E0E600] hover:bg-lime-300 active:bg-lime-400 text-black shadow-sm",
+      "bg-[#D9F300] hover:bg-lime-300 active:bg-lime-400 text-black shadow-sm",
     secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
     danger: "bg-red-600 text-white hover:bg-red-700",
     success: "bg-green-600 text-white hover:bg-green-700",
     warning: "bg-yellow-600 text-white hover:bg-yellow-700",
-    outline: "border border-gray-300 text-gray-700 hover:bg-gray-50",
+    outline: "border border-white text-white hover:bg-white hover:text-black",
     ghost: "hover:bg-gray-100 text-gray-700",
+    solid: "bg-white text-black hover:text-[#D9F300]",
   };
 
   return (
@@ -66,7 +68,7 @@ const Button: React.FC<ButtonProps> = ({
         override
           ? className
           : [
-              "inline-flex items-center justify-center gap-2 rounded-md transition-all duration-200",
+              "inline-flex items-center justify-center gap-2 transition-all duration-200",
               disabled || isLoading ? "cursor-not-allowed" : "cursor-pointer",
               baseStyles[size],
               variantStyles[variant],

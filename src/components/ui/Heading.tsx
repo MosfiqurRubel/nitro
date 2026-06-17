@@ -6,7 +6,7 @@ type HeadingProps = {
   children: React.ReactNode;
   className?: string;
   override?: boolean;
-  variant?: "primary" | "secondary" | "danger" | "success" | "warning";
+  variant?: "primary" | "secondary" | "danger" | "success" | "warning" | "normal";
   size?: string;
   weight?: string;
   align?: string;
@@ -17,7 +17,7 @@ const Heading: React.FC<HeadingProps> = ({
   children,
   className,
   override = false,
-  variant = "secondary",
+  variant = "normal",
   size,
   weight,
   align,
@@ -26,8 +26,10 @@ const Heading: React.FC<HeadingProps> = ({
 
   const baseStyles: Record<string, string> = {
     h1: "text-2xl font-extrabold",
-    h2: "text-xl font-bold",
-    h3: "text-lg font-semibold",
+    // h2: "text-xl font-bold",
+    h2: "text-4xl",
+    // h3: "text-lg font-semibold",
+    h3: "text-2xl",
     h4: "text-base font-semibold",
     h5: "text-sm font-medium",
     h6: "text-xs font-medium",
@@ -35,11 +37,12 @@ const Heading: React.FC<HeadingProps> = ({
   };
 
   const variantStyles: Record<string, string> = {
-    primary: "text-blue-600",
-    secondary: "text-gray-800 dark:text-gray-200",
+    primary: "text-[#E0E600]",
+    secondary: "text-white/70 dark:text-white/70",
     danger: "text-red-600",
     success: "text-green-600",
     warning: "text-yellow-600",
+    normal: "text-white",
   };
 
   return (
