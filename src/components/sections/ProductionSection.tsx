@@ -1,9 +1,11 @@
-import NitroCan from "@/assets/images/can-two.png";
 import FootballImage from "@/assets/images/football-player.png";
 
 export default function ProductionSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black px-16 py-20">
+    <section
+      id="production-section"
+      className="relative min-h-screen overflow-hidden bg-black px-16 py-20"
+    >
       <div
         className="
         absolute
@@ -18,8 +20,6 @@ export default function ProductionSection() {
         blur-[180px]
         "
       />
-
-      {/* Football image */}
 
       <div
         className="
@@ -40,50 +40,40 @@ export default function ProductionSection() {
         />
       </div>
 
-      {/* Can */}
-
       <div
+        id="production-target"
         className="
         absolute
-        left-[48%]
-        top-[52%]
-        z-30
+        left-[44%]
+        top-1/2
+        z-100
+        w-20
+        h-20
         -translate-x-1/2
-        -translate-y-1/2
-        "
-      >
-        <img
-          src={NitroCan}
-          alt="Nitro"
-          className="
-          w-312.5
-          max-w-none
-          drop-shadow-[0_50px_80px_rgba(0,0,0,.85)]
-          "
-        />
-      </div>
-
-      {/* Right text */}
+        -translate-y-1/2"
+      />
 
       <div
         className="
         absolute
         right-20
         top-1/2
-        z-40
+        z-9999
         -translate-y-1/2
         "
       >
         <h2
           className="
+          production-title
           max-w-142
           text-[9vw]
           font-black
           uppercase
           italic
           leading-[0.85]
-          tracking-[-8px]
+          tracking-[-10px]
           text-[#D9F300]
+          opacity-0
           "
         >
           SINCE 2002 PROD UCING

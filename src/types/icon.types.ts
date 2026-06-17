@@ -1,4 +1,4 @@
-export type IconName = "facebook" | "instagram" | "linkedin" | "closeCircle";
+export type IconName = "facebook" | "instagram" | "linkedin" | "twitter";
 
 export interface SvgIconProps {
   name: IconName;

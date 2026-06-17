@@ -31,6 +31,7 @@ export default defineConfig([
       tseslint.configs.stylisticTypeChecked,
 
       // Other configs...
+      // Hero section এর NitroCan image  টা animate  হয়ে ProductionSection এ NitroCan যে ইমেজ টা  আছে ওটার উপর বসবে। NitroCan ওই খানে থাকবে না অ্যানিমেশন হয়ে ঐখানে বসবে। তারপর NitroCan অ্যানিমেশন হয়ে ফুল একবার ঘুড়ে FlavorSection এ পৌঁছাবে, BlurLarge এর উপর গিয়া বসবে?
     ],
     languageOptions: {
       parserOptions: {

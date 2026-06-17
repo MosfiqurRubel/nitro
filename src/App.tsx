@@ -1,13 +1,17 @@
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import ProductionSection from "@/components/sections/ProductionSection";
-import Footer from "@/components/Footer";
-import FlavorSection from '@/components/sections/FlavorSection';
+import Footer from "@/components/layout/Footer";
+import FlavorSection from "@/components/sections/FlavorSection";
+import FloatingNitroCan from "@/components/FloatingNitroCan";
+import NitroJourney from "@/components/NitroJourney";
 
 function App() {
-
   return (
-    <main className="flex flex-col min-h-screen overflow-hidden">
+    <main className="min-h-screen overflow-hidden">
+      <FloatingNitroCan />
+      <NitroJourney />
+      
       <Navbar />
       <Hero />
       <ProductionSection />

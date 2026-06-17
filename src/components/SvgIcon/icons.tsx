@@ -42,7 +42,7 @@ export const icons: Record<IconName, React.ReactNode> = {
     </>
   ),
 
-  closeCircle: (
+  twitter: (
     <>
       <rect x="0.5" y="0.5" width="41" height="41" rx="20.5" stroke="#E0E600" />
       <path

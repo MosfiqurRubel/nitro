@@ -18,7 +18,7 @@ export const socialLinks: {
   },
 
   {
-    name: "closeCircle",
+    name: "twitter",
 
     url: "#",
   },
