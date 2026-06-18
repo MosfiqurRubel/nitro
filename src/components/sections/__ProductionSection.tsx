@@ -40,15 +40,17 @@ export default function ProductionSection() {
         />
       </div>
 
+      {/* Anchor for floating can — centered under the production-title text */}
       <div
         id="production-target"
         className="
         absolute
-        right-[50%]
-        top-[68%]
+        right-[8%]
+        top-[78%]
         z-100
         w-20
         h-20
+        -translate-x-1/2
         -translate-y-1/2"
       />
 
@@ -57,7 +59,7 @@ export default function ProductionSection() {
         absolute
         right-20
         top-1/2
-        z-99991
+        z-9999
         -translate-y-1/2
         "
       >

@@ -1,74 +1,220 @@
-# React + TypeScript + Vite
+# 🚀 Nitro Energy Drink Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive, and animated landing page built with **React**, **TypeScript**, **Tailwind CSS**, and **GSAP**.
 
-Currently, two official plugins are available:
+This project recreates a premium product showcase experience with smooth scroll-based animations inspired by modern product websites.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📸 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### ✨ Animations
 
-## Expanding the ESLint configuration
+* Hero section centered floating Nitro can
+* Smooth scroll-based transitions
+* Production section reveal animation
+* Production section pinning
+* Cinematic can movement between sections
+* Slow 3D can flip animation
+* Floating can → Real product can transition
+* Navbar entrance animation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠 Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* React
+* TypeScript
+* Tailwind CSS
+* GSAP
+* ScrollTrigger
+* Lucide React
+* Vite
 
-      // Other configs...
-      // Hero section এর NitroCan image  টা animate  হয়ে ProductionSection এ NitroCan যে ইমেজ টা  আছে ওটার উপর বসবে। NitroCan ওই খানে থাকবে না অ্যানিমেশন হয়ে ঐখানে বসবে। তারপর NitroCan অ্যানিমেশন হয়ে ফুল একবার ঘুড়ে FlavorSection এ পৌঁছাবে, BlurLarge এর উপর গিয়া বসবে?
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 📂 Project Structure
+
+```text
+src/
+
+├── assets/
+│   └── images/
+
+├── components/
+│
+├── layout/
+│   ├── Navbar.tsx
+│   └── Footer.tsx
+│
+├── sections/
+│   ├── Hero.tsx
+│   ├── ProductionSection.tsx
+│   └── FlavorSection.tsx
+│
+├── svgIcon/
+│   ├── icons.tsx
+│   ├── SvgIcon.tsx
+│   └── index.tsx
+│
+├── ui/
+│   ├── Button.tsx
+│   └── Heading.tsx
+│
+├── FloatingNitroCan.tsx
+├── NitroJourney.tsx
+│
+├── App.tsx
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# 🎯 Animation Flow
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Hero Section
+
+* Floating Nitro can starts at the center.
+* The can stays static while scrolling.
+
+### Production Section
+
+* Production title fades in.
+* The can moves smoothly to the Production target.
+* The can scales from `1 → 1.5`.
+* The Production section is pinned.
+
+### Flavor Section
+
+* The can slowly travels toward the Flavor target.
+* A cinematic flip animation occurs.
+* The can scales down.
+* Floating can fades out.
+* Real green Nitro can fades in.
+
+---
+
+## 📦 Installation
+
+Clone the repository.
+
+```bash
+git clone git@github.com:MosfiqurRubel/nitro.git
 ```
+
+Move into the project directory.
+
+```bash
+cd nitro
+```
+
+Install dependencies.
+
+```bash
+npm install
+```
+
+Run the development server.
+
+```bash
+npm run dev
+```
+
+---
+
+## 📥 Available Scripts
+
+Start development server:
+
+```bash
+npm run dev
+```
+
+Build production version:
+
+```bash
+npm run build
+```
+
+Preview production build:
+
+```bash
+npm run preview
+```
+
+Lint project:
+
+```bash
+npm run lint
+```
+
+---
+
+## 📚 Dependencies
+
+```json
+{
+  "react": "^19",
+  "typescript": "^5",
+  "tailwindcss": "^4",
+  "gsap": "^3",
+  "lucide-react": "^0.x"
+}
+```
+
+---
+
+## ⚙️ GSAP Plugins Used
+
+```ts
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+```
+
+---
+
+## 🎨 Design Goals
+
+This project focuses on:
+
+* Premium product presentation
+* Cinematic scroll experience
+* Smooth animations
+* Reusable React components
+* Clean architecture
+* Responsive layouts
+* Modern UI interactions
+
+---
+
+## 🔮 Future Improvements
+
+* Mobile-specific animations
+* Performance optimization
+* Accessibility improvements
+* Product slider interactions
+* Sound effects
+
+---
+
+## 👨‍💻 Author
+
+**Mosfiq Rubel**
+
+Frontend Developer
+
+Technologies:
+
+* React
+* TypeScript
+* JavaScript
+* Tailwind CSS
+* GSAP
+
+---
+
+## 📄 License
+
+This project is available for educational and portfolio purposes.

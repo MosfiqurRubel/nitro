@@ -5,6 +5,10 @@ export default function FloatingNitroCan() {
     <div
       id="floating-can"
       className="fixed left-1/2 top-1/2 z-9999 pointer-events-none will-change-transform"
+      style={{
+        perspective: "2500px",
+        transformStyle: "preserve-3d",
+      }}
     >
       <img
         src={NitroCan}

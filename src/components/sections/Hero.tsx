@@ -8,7 +8,7 @@ export default function Hero() {
     >
       <Heading
         as="h1"
-        className="text-[32vw] uppercase text-[#D9F300]! tracking-[-24px] leading-none"
+        className="text-[32vw] uppercase text-[#D9F300]! tracking-[-24px] italic leading-none relative -mt-8"
         children="Nitro"
       />
 

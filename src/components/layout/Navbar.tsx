@@ -106,18 +106,18 @@ const navItems = ["Home", "Shop", "About", "Gallery", "Contact"];
 
 export default function Navbar() {
   return (
-    <header className="py-8">
+    <header id="navbar" className="navbar">
       <div className="mx-auto flex h-11 max-w-[1800px] items-center justify-between px-20">
-        <div className="text-[38px] font-black italic tracking-tight text-[#D9F300]">
+        <h1 id="logo" className="text-4xl font-black italic tracking-tight text-[#D9F300]">
           NITRO
-        </div>
+        </h1>
 
-        <nav className="hidden items-center gap-28 lg:flex">
+        <nav id="nav" className="hidden items-center gap-28 lg:flex">
           {navItems.map((item) => (
             <a
               key={item}
               href="#"
-              className="text-[18px] font-medium text-white transition hover:text-[#D9F300]"
+              className="text-base font-normal text-white transition hover:text-[#D9F300]"
             >
               {item}
             </a>

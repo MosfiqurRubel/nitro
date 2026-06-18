@@ -82,7 +82,7 @@ export default function FlavorSection() {
                 (product.featured ? (
                   <div
                     id="flavor-target"
-                    className="absolute left-1/2 bottom-77 z-50 w-10 h-10 -translate-x-1/2"
+                    className="absolute left-1/2 top-1/2 z-50 w-10 h-10 -translate-x-1/2 -translate-y-1/2"
                   >
                     <img
                       src={product.plateImage}
