@@ -99,42 +99,153 @@
 //   );
 // }
 
-import { Menu } from "lucide-react";
-import Button from "@/components/ui/Button";
+// import { Menu } from "lucide-react";
+// import Button from "@/components/ui/Button";
 
-const navItems = ["Home", "Shop", "About", "Gallery", "Contact"];
+// const navItems = ["Home", "Shop", "About", "Gallery", "Contact"];
+
+// export default function Navbar() {
+//   return (
+//     <header id="navbar" className="navbar">
+//       <div className="mx-auto flex h-11 max-w-[1800px] items-center justify-between px-20">
+//         <h1 id="logo" className="text-4xl font-black italic tracking-tight text-[#D9F300]">
+//           NITRO
+//         </h1>
+
+//         <nav id="nav" className="hidden items-center gap-28 lg:flex">
+//           {navItems.map((item) => (
+//             <a
+//               key={item}
+//               href="#"
+//               className="text-base font-normal text-white transition hover:text-[#D9F300]"
+//             >
+//               {item}
+//             </a>
+//           ))}
+//         </nav>
+//         <Button
+//           variant="primary"
+//           size="medium"
+//           weight="font-medium"
+//           label="Buy now"
+//           className="capitalize max-lg:hidden"
+//         />
+
+//         <button className="lg:hidden">
+//           <Menu className="text-white" />
+//         </button>
+//       </div>
+//     </header>
+//   );
+// }
+
+"use client";
+
+import { useState } from "react";
+import { Link } from "react-scroll";
+import { Menu, X } from "lucide-react";
+
+import Button from "@/components/ui/Button";
+import { navItems } from "@/lib/navigation";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closeMenu = () => setIsOpen(false);
+
   return (
-    <header id="navbar" className="navbar">
-      <div className="mx-auto flex h-11 max-w-[1800px] items-center justify-between px-20">
-        <h1 id="logo" className="text-4xl font-black italic tracking-tight text-[#D9F300]">
-          NITRO
-        </h1>
+    <>
+      <header id="navbar" className="navbar">
+        <div className="navbar-container">
+          {/* Logo */}
+          <Link
+            to="hero"
+            smooth
+            duration={800}
+            offset={-80}
+            className="cursor-pointer"
+          >
+            <h1 id="logo">
+              NITRO
+            </h1>
+          </Link>
 
-        <nav id="nav" className="hidden items-center gap-28 lg:flex">
+          {/* Desktop Navigation */}
+          <nav
+            aria-label="Primary navigation"
+            className="hidden items-center gap-28 lg:flex"
+          >
+            {navItems.map((item) => (
+              <Link
+                key={item.section}
+                to={item.section}
+                spy
+                smooth
+                duration={700}
+                offset={-100}
+                activeClass="!text-[#D9F300]"
+                className="nav-link"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Desktop CTA */}
+          <Button
+            variant="primary"
+            size="medium"
+            weight="font-medium"
+            label="Buy now"
+            className="max-lg:hidden capitalize lg:flex"
+          />
+
+          {/* Mobile Toggle */}
+          <button
+            type="button"
+            aria-label="Toggle navigation"
+            onClick={() => setIsOpen((prev) => !prev)}
+            className="text-white lg:hidden"
+          >
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile Menu */}
+      <div
+        className={`mobile-menu ${
+          isOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
+        }`}
+      >
+        <div className="mobile-menu-container">
           {navItems.map((item) => (
-            <a
-              key={item}
-              href="#"
-              className="text-base font-normal text-white transition hover:text-[#D9F300]"
+            <Link
+              key={item.section}
+              to={item.section}
+              spy
+              smooth
+              duration={700}
+              offset={-100}
+              onClick={closeMenu}
+              activeClass="text-[#D9F300]"
+              className="mobile-nav-link"
             >
-              {item}
-            </a>
+              {item.label}
+            </Link>
           ))}
-        </nav>
-        <Button
-          variant="primary"
-          size="medium"
-          weight="font-medium"
-          label="Buy now"
-          className="capitalize max-lg:hidden"
-        />
 
-        <button className="lg:hidden">
-          <Menu className="text-white" />
-        </button>
+          <Button
+            variant="primary"
+            size="medium"
+            weight="font-medium"
+            label="Buy now"
+            className="mt-4 capitalize"
+          />
+        </div>
       </div>
-    </header>
+    </>
   );
 }
