@@ -1,8 +1,9 @@
 import { useLayoutEffect } from "react";
 import gsap from "@/lib/gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import MotionPathPlugin from "gsap/MotionPathPlugin";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 const getOffsetFromSection = (el: HTMLElement): { x: number; y: number } => {
   let top = 0;
@@ -177,63 +178,65 @@ export default function NitroJourney() {
 
       ScrollTrigger.create({
         trigger: "#production-section",
-
         start: "top top",
-
-        end: "+=500",
-
+        end: "+=600",
         pin: true,
-
-        scrub: 10,
-
+        scrub: true,
         invalidateOnRefresh: true,
       });
 
       /*
-      ----------------------------------
-      PHASE 3
-      Production → Flavor
-      Slow cinematic flip
-      ----------------------------------
-      */
+        ----------------------------------
+        PHASE 3
+        Production → Flavor
+        Motion Path
+        ----------------------------------
+        */
 
       const phase3 = gsap.timeline({
         scrollTrigger: {
           trigger: "#production-section",
-
           start: "bottom top",
-
           endTrigger: "#flavor-section",
-
           end: "top top",
-
-          scrub: 15,
-
+          scrub: 4,
           invalidateOnRefresh: true,
         },
       });
 
+      const target = getOffsetFromSection(flavor);
+
+      const path = [
+        {
+          x: getOffsetFromSection(production).x,
+          y: getOffsetFromSection(production).y,
+        },
+        {
+          x: target.x * 0.25,
+          y: target.y * 0.05,
+        },
+        {
+          x: target.x * 0.65,
+          y: target.y * 0.55,
+        },
+        {
+          x: target.x,
+          y: target.y,
+        },
+      ];
+
       phase3.to(can, {
-        x: () => getOffsetFromSection(flavor).x,
+        motionPath: {
+          path,
+          curviness: 1.6,
+          autoRotate: false,
+        },
 
-        y: () => getOffsetFromSection(flavor).y,
-
-        scale: 0.6,
-
-        // খাড়া হবে
-        rotationZ: -90,
-
-        // নিজের অক্ষের উপর বাম → ডান flip
-        // rotationY: -180,
-        rotationY: 0,
-
-        rotationX: 180,
-
-        transformPerspective: 2500,
-
-        ease: "power2.inOut",
+        scale: 0.58,
+        rotationZ: -55,
+        rotationY: -25,
+        rotationX: 15,
       });
-
       /*
       ----------------------------------
       Swap Floating → Real Green Can

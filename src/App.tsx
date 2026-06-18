@@ -14,9 +14,9 @@ function App() {
       
       <Navbar />
       <Hero />
-      <Footer />
       <ProductionSection />
       <FlavorSection />
+      <Footer />
     </main>
   );
 }

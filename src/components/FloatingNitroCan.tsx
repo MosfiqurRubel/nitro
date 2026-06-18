@@ -13,7 +13,8 @@ export default function FloatingNitroCan() {
       <img
         src={NitroCan}
         alt="Nitro"
-        className="w-[60vw] max-w-none drop-shadow-[0_40px_80px_rgba(0,0,0,.9)]"
+        className="w-[60vw] h-auto max-w-none drop-shadow-[0_40px_80px_rgba(0,0,0,.9)]"
+        draggable={false}
       />
     </div>
   );
