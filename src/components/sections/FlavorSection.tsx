@@ -74,7 +74,7 @@ export default function FlavorSection() {
       className="relative min-h-screen bg-black px-20 py-28"
     >
       <div className="absolute left-1/2 top-1/2 h-162.5 w-162.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-[168px]" />
-      <div className="relative z-20 grid grid-cols-5 items-center gap-14">
+      <div className="relative z-20 lg:grid lg:grid-cols-5 items-center gap-14">
         {products.map((product) => (
           <div key={product.title} className="flavor-card">
             <div className="relative flex justify-center">
