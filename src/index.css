@@ -29,7 +29,7 @@ body {
 }
 
 @utility production-title {
-  @apply text-center font-black uppercase italic  leading-[0.9] text-[#D9F300] text-[18vw] sm:text-[14vw] md:text-[12vw] lg:max-w-142 lg:text-[9vw] tracking-[-2px] sm:tracking-[-4px] md:tracking-[-6px] lg:tracking-[-10px] opacity-0;
+  @apply text-center font-black uppercase italic leading-[0.9] text-[#D9F300] text-[18vw] sm:text-[14vw] md:text-[12vw] lg:max-w-142 lg:text-[9vw] tracking-[-2px] sm:tracking-[-4px] md:tracking-[-6px] lg:tracking-[-10px] opacity-0;
 }
 
 @layer components {
