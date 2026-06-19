@@ -142,12 +142,6 @@ Preview production build:
 npm run preview
 ```
 
-Lint project:
-
-```bash
-npm run lint
-```
-
 ---
 
 ## 📚 Dependencies
