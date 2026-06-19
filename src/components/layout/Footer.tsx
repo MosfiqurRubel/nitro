@@ -5,20 +5,74 @@ import SvgIcon from "@/components/SvgIcon/SvgIcon";
 
 const Footer = () => {
   return (
-    <footer className="flex max-lg:flex-col lg:justify-between items-center px-22 pt-8 pb-11 max-lg:space-y-8">
-      <div className="max-w-116">
-        <Heading as="p" className="uppercase text-white max-lg:text-center">
+    <footer
+      className="
+      flex
+      flex-col
+      lg:flex-row
+      items-center
+      justify-between
+
+      gap-10
+      lg:gap-8
+
+      px-6
+      sm:px-10
+      md:px-16
+      lg:px-22
+
+      py-10
+      "
+    >
+      {/* Text */}
+      <div className="max-w-115">
+        <Heading
+          as="p"
+          className="
+          uppercase
+          text-white
+
+          text-center
+          lg:text-left
+          "
+        >
           WOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. NUNC
           VULPUTATE LIBERO, ET VELIT INTERDUM, AC.
         </Heading>
       </div>
 
-      <div className="flex gap-8">
+      {/* Buttons */}
+      <div
+        className="
+        flex
+        flex-col
+        sm:flex-row
+
+        w-full
+        sm:w-auto
+
+        gap-4
+        sm:gap-6
+        "
+      >
         <Button variant="solid" weight="font-medium" label="Buy Now" />
+
         <Button variant="outline" weight="font-medium" label="More info" />
       </div>
 
-      <div className="flex gap-8">
+      {/* Social Icons */}
+      <div
+        className="
+        flex
+        flex-wrap
+
+        justify-center
+        lg:justify-end
+
+        gap-5
+        sm:gap-6
+        "
+      >
         {socialLinks.map(({ name, url }) => (
           <a
             key={name}
@@ -27,14 +81,19 @@ const Footer = () => {
             rel="noreferrer"
             aria-label={name}
             className="
-          flex-center
-          rounded-full
-          transition-all
-          duration-300
-          hover:scale-110
-          "
+            flex
+            items-center
+            justify-center
+
+            rounded-full
+
+            transition-all
+            duration-300
+
+            hover:scale-110
+            "
           >
-            <SvgIcon name={name} size={42} />
+            <SvgIcon name={name} size={36} />
           </a>
         ))}
       </div>

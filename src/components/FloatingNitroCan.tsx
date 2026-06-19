@@ -1,4 +1,4 @@
-import NitroCan from "@/assets/images/Can.svg";
+import NitroCan from "@/assets/images/can.png";
 
 export default function FloatingNitroCan() {
   return (

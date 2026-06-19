@@ -57,7 +57,7 @@ const Button: React.FC<ButtonProps> = ({
     warning: "bg-yellow-600 text-white hover:bg-yellow-700",
     outline: "border border-white text-white hover:bg-white hover:text-black",
     ghost: "hover:bg-gray-100 text-gray-700",
-    solid: "bg-white text-black hover:text-[#D9F300]",
+    solid: "bg-white text-black hover:bg-lime-300",
   };
 
   return (

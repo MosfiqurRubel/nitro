@@ -138,6 +138,7 @@ export default function NitroJourney() {
       ----------------------------------
       PHASE 1
       Hero → Production
+      No rotation — smoothly moves under the production title and scales up
       ----------------------------------
       */
 
@@ -173,25 +174,43 @@ export default function NitroJourney() {
       ----------------------------------
       PHASE 2
       Production Pin
+      Section stays pinned.
+      First 30%: can sits still.
+      Last 70%: left side slowly tilts down (rotationZ: -90).
       ----------------------------------
       */
+
+      const tiltTl = gsap.timeline();
+
+      tiltTl
+        .fromTo(
+          can,
+          { rotationZ: 0 },
+          { rotationZ: 0, duration: 0.3, ease: "none" }, // hold still
+        )
+        .to(can, {
+          rotationZ: -90,        // left side goes down
+          duration: 0.7,
+          ease: "power2.inOut",  // slow start, slow end
+        });
 
       ScrollTrigger.create({
         trigger: "#production-section",
         start: "top top",
-        end: "+=600",
+        end: "+=800",
         pin: true,
-        scrub: true,
+        scrub: 2,
+        animation: tiltTl,
         invalidateOnRefresh: true,
       });
 
       /*
-        ----------------------------------
-        PHASE 3
-        Production → Flavor
-        Motion Path
-        ----------------------------------
-        */
+      ----------------------------------
+      PHASE 3
+      Production → Flavor
+      Tilted can glides along arc path to flavor target, shrinks and lands.
+      ----------------------------------
+      */
 
       const phase3 = gsap.timeline({
         scrollTrigger: {
@@ -233,10 +252,9 @@ export default function NitroJourney() {
         },
 
         scale: 0.58,
-        rotationZ: -55,
-        rotationY: -25,
-        rotationX: 15,
+        rotationZ: -90,  // keeps the left-side-down tilt during the glide
       });
+
       /*
       ----------------------------------
       Swap Floating → Real Green Can
